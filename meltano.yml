@@ -1,0 +1,27 @@
+version: 1
+default_environment: dev
+project_id: 9823d9d5-ad21-466c-92e2-c491fbaa02e9
+environments:
+  - name: dev
+  - name: staging
+  - name: prod
+plugins:
+  extractors:
+    - name: tap-csv
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+      config:
+        files:
+          - entity: example
+            path: example.csv
+            keys:
+              - email
+      select:
+        - example.*
+        - list.*
+  loaders:
+    - name: target-jsonl
+      variant: andyh1203
+      pip_url: target-jsonl
+      config:
+        destination_path: output

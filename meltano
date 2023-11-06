@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+docker run \
+  -v "$(pwd)":/project \
+  -w /project \
+  meltano/meltano:v3.1 "$@"
