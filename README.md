@@ -1,4 +1,6 @@
 ```.bash
-./meltano run tap-csv target-jsonl
-cat output/example.jsonl
+$ ./meltano run tap-csv target-jsonl
+...snip...
+$ cat example.csv
+$ cat output/example.jsonl
 ```
